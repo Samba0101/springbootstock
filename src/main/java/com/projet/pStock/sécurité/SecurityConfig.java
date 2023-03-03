@@ -53,7 +53,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
   http.authorizeRequests().antMatchers("/login/**","/register/**").permitAll();
   http.authorizeRequests().antMatchers("/appUsers/**","/appRoles/**").hasAuthority("ADMIN"); 
   http.authorizeRequests().anyRequest().authenticated();
- http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
+  http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
   http.addFilterBefore(new JWTAuthorizationFilter(),UsernamePasswordAuthenticationFilter.class);
   
   }
