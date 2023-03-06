@@ -49,7 +49,8 @@
   public void addRoleToUser(String username, String role) 
   {
 	  AppUser appUser =userRepository.findByUsername(username); 
-	  AppRole appRole =roleRepository.findByroleName(role); appUser.getRole().add(appRole); 
+	  AppRole appRole =roleRepository.findByroleName(role); 
+	  appUser.getRole().add(appRole); 
 	  }
   }
  

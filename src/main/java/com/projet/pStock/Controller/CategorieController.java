@@ -35,7 +35,7 @@ public class CategorieController {
 	 CategorieRepositorie repositorie;
 	
 	 
-	@CrossOrigin(origins = {"localhost:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
 	//@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/Categories")
 	public List<Categorie> getALLCategorie(){
@@ -43,7 +43,7 @@ public class CategorieController {
 		repositorie.findAll().forEach(Categorie ::add);
 		return Categorie;
 	}
-	@CrossOrigin(origins = {"localhost:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
 	//@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/Categories/{id}")
 	public ResponseEntity<Categorie> getCategorieById(@PathVariable(value="id") 
@@ -52,7 +52,7 @@ public class CategorieController {
 		new ResourceNotFoundException("Categorie not fount"));
 		return ResponseEntity.ok().body(Categorie);
 	}
-	@CrossOrigin(origins = {" localhost:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
 	//@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@PostMapping("/Categories")
 	public Categorie createCategorie(@Validated @RequestBody Categorie Categorie) {
@@ -60,13 +60,13 @@ public class CategorieController {
 	}
 
 	
-	  @CrossOrigin(origins = {" localhost:4200"}, allowedHeaders={"Accept"})
+	  @CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
 	  
 	  @DeleteMapping(value="/Categories/{id}") public void
 	  delete(@PathVariable(name="id") Long id) { repositorie.deleteById(id); }
 	 
 	
-	  @CrossOrigin(origins = { "localhost:4200"}, allowedHeaders={"Accept"})
+	  @CrossOrigin(origins = { "192.168.0.102:4200"}, allowedHeaders={"Accept"})
 	  
 	  @DeleteMapping("/Categories/delete") public ResponseEntity<String>
 	  deleteAllCategories(){ repositorie.deleteAll();
@@ -75,7 +75,7 @@ public class CategorieController {
 	  ResponseEntity<String>("Tous les Categories sont supprimés",HttpStatus.OK); }
 	 
 
-	@CrossOrigin(origins = {"localhost:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
 	@PutMapping("/Categories/{id}")
 	public Categorie updateCategorie(@PathVariable(name="id") Long id,@RequestBody Categorie categorie) {
 		Optional<Categorie> CategorieInfo=repositorie.findById(id);
