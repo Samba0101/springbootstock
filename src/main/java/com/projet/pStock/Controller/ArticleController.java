@@ -26,7 +26,7 @@ import com.projet.pStock.repositorie.ArticleRepositorie;
 
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://192.168.0.104:4200")
 @RestController
 @RequestMapping("/api")
 public class ArticleController {

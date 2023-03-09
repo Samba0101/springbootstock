@@ -37,7 +37,7 @@ public class ClientController {
 
 	
 	
-	@CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
 	  @GetMapping("/Clients")
 	  public List<Client> getALLClient(){
 		  List<Client> client=new ArrayList<Client>();
@@ -51,7 +51,7 @@ public class ClientController {
 		return ResponseEntity.ok().body(client);
 	}*/
 	
-	@CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
 	  @PostMapping("/Clients") 
 	  public Client createClient(@Validated @RequestBody
 	  Client client) { return repositorie.save(client); }
@@ -67,7 +67,7 @@ public class ClientController {
 		return response;
 	}*/
 		
-	@CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
 	  @DeleteMapping(value="/Clients/{id}")
 	public void delete(@PathVariable(name="id") Long id)
 	{ repositorie.deleteById(id); }
@@ -100,7 +100,7 @@ public class ClientController {
 		
 		return new ResponseEntity<String>("Tous les Clients sont supprimés",HttpStatus.OK);
 	}*/
-	@CrossOrigin(origins = {"192.168.0.102:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
 	@PutMapping("Clients/{id}")
 	public ResponseEntity<Client> updateClient(@PathVariable("id") long id,@RequestBody Client Client){
 		
