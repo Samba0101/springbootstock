@@ -37,7 +37,7 @@ public class ClientController {
 
 	
 	
-	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.1.44:4200"}, allowedHeaders={"Accept"})
 	  @GetMapping("/Clients")
 	  public List<Client> getALLClient(){
 		  List<Client> client=new ArrayList<Client>();

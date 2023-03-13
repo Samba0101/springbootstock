@@ -43,7 +43,7 @@ public class CategorieController {
 		repositorie.findAll().forEach(Categorie ::add);
 		return Categorie;
 	}
-	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = {"192.168.1.44:4200"}, allowedHeaders={"Accept"})
 	//@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/Categories/{id}")
 	public ResponseEntity<Categorie> getCategorieById(@PathVariable(value="id") 
