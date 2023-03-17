@@ -2,6 +2,7 @@
   package com.projet.pStock.sécurité;
   
   import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import
   org.springframework.context.annotation.Configuration;
 import
@@ -22,6 +23,7 @@ import
   org.springframework.security.core.userdetails.UserDetailsService;
 import
   org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
   
   
@@ -33,6 +35,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
   @Autowired private UserDetailsService userDetailsService;
   
   @Autowired private BCryptPasswordEncoder bCryptPasswordEncoder;
+	/*
+	 * @Bean public PasswordEncoder encoder() { return new BCryptPasswordEncoder();
+	 * }
+	 */
   
   @Override protected void configure(AuthenticationManagerBuilder auth) throws
   Exception {
@@ -44,7 +50,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
   
   @Override protected void configure(HttpSecurity http) throws Exception {
   
-  //http.formLogin(); 
+  http.formLogin(); 
   http.csrf().disable();
   http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.
   STATELESS);
@@ -56,6 +62,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
   http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
   http.addFilterBefore(new JWTAuthorizationFilter(),UsernamePasswordAuthenticationFilter.class);
   
+  }
+  @Bean
+  public BCryptPasswordEncoder passwordEncoder() {
+      return new BCryptPasswordEncoder();
   }
   }
   
