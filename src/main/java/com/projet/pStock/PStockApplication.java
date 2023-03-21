@@ -7,11 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.projet.pStock.model.AppUser;
 import com.projet.pStock.model.Categorie;
 import com.projet.pStock.model.Client;
 import com.projet.pStock.repositorie.AccountService;
 import com.projet.pStock.repositorie.CategorieRepositorie;
 import com.projet.pStock.repositorie.ClientRepositorie;
+import com.projet.pStock.repositorie.UserRepository;
 
 @SpringBootApplication
 public class PStockApplication implements  CommandLineRunner{
@@ -19,6 +21,8 @@ public class PStockApplication implements  CommandLineRunner{
 	private ClientRepositorie repositorie;
 	@Autowired
 	private CategorieRepositorie cat_repositorie;
+	@Autowired
+	private UserRepository userRepository;
 	@Autowired
 	private AccountService accountServie ;
 	public static void main(String[] args) {
@@ -36,8 +40,11 @@ public class PStockApplication implements  CommandLineRunner{
 		cat_repositorie.save(new Categorie("Fruit","pomme"));
 		/*accountServie.saveUser("kine", "kine", "kine");
 		accountServie.saveUser("fatou", "1234", "1234");*/
-		accountServie.saveUser("anna", "1234", "1234");
-		accountServie.saveUser("yaya", "1234", "1234");
+		//accountServie.saveUser("anna", "anna", "anna");
+		//accountServie.saveUser("yaya", "yaya","yaya");
+		accountServie.saveUser("yacine", "1234", "1234");
+		//userRepository.save(new AppUser("fatou", "1234", "1234"));
+		
 	
 	}
 
