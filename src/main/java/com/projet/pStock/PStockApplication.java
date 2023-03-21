@@ -42,7 +42,7 @@ public class PStockApplication implements  CommandLineRunner{
 		accountServie.saveUser("fatou", "1234", "1234");*/
 		//accountServie.saveUser("anna", "anna", "anna");
 		//accountServie.saveUser("yaya", "yaya","yaya");
-		accountServie.saveUser("yacine", "1234", "1234");
+		//accountServie.saveUser("yacine", "1234", "1234");
 		//userRepository.save(new AppUser("fatou", "1234", "1234"));
 		
 	
