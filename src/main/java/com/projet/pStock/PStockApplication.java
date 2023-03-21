@@ -34,8 +34,8 @@ public class PStockApplication implements  CommandLineRunner{
 			repositorie.save(new Client("samba","sar","samba01","sebie","samba","saa","sssssss"));
 		
 		cat_repositorie.save(new Categorie("Fruit","pomme"));
-		accountServie.saveUser("kine", "kine", "kine");
-		accountServie.saveUser("fatou", "1234", "1234");
+		/*accountServie.saveUser("kine", "kine", "kine");
+		accountServie.saveUser("fatou", "1234", "1234");*/
 		accountServie.saveUser("anna", "1234", "1234");
 		accountServie.saveUser("yaya", "1234", "1234");
 	
