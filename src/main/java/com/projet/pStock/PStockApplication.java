@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.projet.pStock.model.Categorie;
 import com.projet.pStock.model.Client;
+import com.projet.pStock.repositorie.AccountService;
 import com.projet.pStock.repositorie.CategorieRepositorie;
 import com.projet.pStock.repositorie.ClientRepositorie;
 
@@ -18,6 +19,8 @@ public class PStockApplication implements  CommandLineRunner{
 	private ClientRepositorie repositorie;
 	@Autowired
 	private CategorieRepositorie cat_repositorie;
+	@Autowired
+	private AccountService accountServie ;
 	public static void main(String[] args) {
 		SpringApplication.run(PStockApplication.class, args);
 	}
@@ -31,6 +34,11 @@ public class PStockApplication implements  CommandLineRunner{
 			repositorie.save(new Client("samba","sar","samba01","sebie","samba","saa","sssssss"));
 		
 		cat_repositorie.save(new Categorie("Fruit","pomme"));
+		accountServie.saveUser("kine", "kine", "kine");
+		accountServie.saveUser("fatou", "1234", "1234");
+		accountServie.saveUser("anna", "1234", "1234");
+		accountServie.saveUser("yaya", "1234", "1234");
+	
 	}
 
 	@Bean

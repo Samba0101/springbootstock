@@ -50,7 +50,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
   
   @Override protected void configure(HttpSecurity http) throws Exception {
   
-  http.formLogin(); 
+  //http.formLogin(); 
   http.csrf().disable();
   http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.
   STATELESS);
@@ -63,10 +63,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
   http.addFilterBefore(new JWTAuthorizationFilter(),UsernamePasswordAuthenticationFilter.class);
   
   }
-  @Bean
-  public BCryptPasswordEncoder passwordEncoder() {
-      return new BCryptPasswordEncoder();
-  }
+	/*
+	 * @Bean public BCryptPasswordEncoder passwordEncoder() { return new
+	 * BCryptPasswordEncoder(); }
+	 */
   }
   
   
