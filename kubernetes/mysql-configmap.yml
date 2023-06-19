@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: database
+data:
+ host: mysql
+ name: stock 

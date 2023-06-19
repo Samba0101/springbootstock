@@ -33,11 +33,8 @@ public class ClientController {
 	@Autowired
 	ClientRepositorie repositorie;
 
-
-
 	
-	
-	@CrossOrigin(origins = {"192.168.1.44:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	  @GetMapping("/Clients")
 	  public List<Client> getALLClient(){
 		  List<Client> client=new ArrayList<Client>();
@@ -51,7 +48,7 @@ public class ClientController {
 		return ResponseEntity.ok().body(client);
 	}*/
 	
-	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	  @PostMapping("/Clients") 
 	  public Client createClient(@Validated @RequestBody
 	  Client client) { return repositorie.save(client); }
@@ -67,7 +64,7 @@ public class ClientController {
 		return response;
 	}*/
 		
-	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	  @DeleteMapping(value="/Clients/{id}")
 	public void delete(@PathVariable(name="id") Long id)
 	{ repositorie.deleteById(id); }
@@ -79,16 +76,13 @@ public class ClientController {
 	 * Long id) { repositorie.deleteById(id); }
 	 */
 	  
-	  
 	/*
 	 * @CrossOrigin(origins = {" localhost:4200"}, allowedHeaders={"Accept"})
 	 * 
 	 * @DeleteMapping(value="/Clients/{id}") public void
 	 * delete(@PathVariable(name="id") Long id) { repositorie.deleteById(id); }
 	 */
-	 
-	  
-	 
+
 	/*
 	 * @DeleteMapping("/Clients/delete") public ResponseEntity<String>
 	 * deleteAllClients(){ repositorie.deleteAll(); return new
@@ -100,7 +94,8 @@ public class ClientController {
 		
 		return new ResponseEntity<String>("Tous les Clients sont supprimés",HttpStatus.OK);
 	}*/
-	@CrossOrigin(origins = {"192.168.0.104:4200"}, allowedHeaders={"Accept"})
+
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@PutMapping("Clients/{id}")
 	public ResponseEntity<Client> updateClient(@PathVariable("id") long id,@RequestBody Client Client){
 		
@@ -118,12 +113,6 @@ public class ClientController {
 	}
 		else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-			
+		}		
 	}
-	
-	
-	
-
-
 }

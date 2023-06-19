@@ -21,7 +21,7 @@ import com.projet.pStock.exception.ResourceNotFoundException;
 import com.projet.pStock.model.Fournisseur;
 import com.projet.pStock.repositorie.FournisseurRepositorie;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api")
 public class FournisseurController {
