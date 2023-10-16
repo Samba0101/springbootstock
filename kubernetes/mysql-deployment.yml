@@ -75,7 +75,7 @@ spec:
         - name: MYSQL_DATABASE # Setting Database Name from a 'ConfigMap'
           valueFrom:
             configMapKeyRef:
-              name: db-conf
+              name: database
               key: name
         ports:
         - containerPort: 3306
