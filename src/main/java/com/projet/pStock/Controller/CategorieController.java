@@ -61,9 +61,10 @@ public class CategorieController {
 	 
 	
 	  @CrossOrigin(origins = "*", allowedHeaders = "*")
-	  @DeleteMapping("/Categories/delete") public ResponseEntity<String>
-	  deleteAllCategories(){ repositorie.deleteAll();
-	  
+	  @DeleteMapping("/Categories/delete") 
+	  public ResponseEntity<String>deleteAllCategories(){
+		  //repositorie.deleteAll();
+	        repositorie.deleteAll();
 	  return new
 	  ResponseEntity<String>("Tous les Categories sont supprimés",HttpStatus.OK); }
 	 

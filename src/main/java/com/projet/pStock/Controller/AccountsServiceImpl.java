@@ -13,7 +13,6 @@
   com.projet.pStock.repositorie.UserRepository;
   
   @Service
-  
   @Transactional 
   public class AccountsServiceImpl implements AccountService{
   
@@ -30,14 +29,17 @@
   public AppUser saveUser(String username, String password, String confirmPassword) {
 	  AppUser user=userRepository.findByUsername(username);
   if(user != null) throw new RuntimeException("L'utilisateur existe déja");
-  if(!password.equals(confirmPassword)) throw new
+  //if(!password.equals(confirmPassword))
+  if (!password.equals(confirmPassword))throw new
   RuntimeException("Confirmer votre mot de passe"); 
   AppUser appUser=new AppUser();
   appUser.setActived(true); 
   appUser.setUsername(username);
   appUser.setPassword(bCryptPasswordEncoder.encode(password));
-  //appUser.setPassword(password); userRepository.save(appUser);
-  addRoleToUser(username, "USER"); return appUser; }
+  //appUser.setPassword(password);
+  userRepository.save(appUser);
+  addRoleToUser(username, "USER");
+  return appUser; }
   
   @Override public AppRole save(AppRole role) { // TODO Auto-generated method
  return roleRepository.save(role); }
